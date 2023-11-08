@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "SfGnfjpf9rgI/oXKvCrroGi7EJM25BBd3LIyT9X+Qe0=",
+  "Source": "MoviesAPI",
+  "BasePath": "_content/MoviesAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MoviesAPI\\wwwroot",
+      "Source": "MoviesAPI",
+      "ContentRoot": "C:\\Repository\\AngularAndDotNET\\AngularMovies\\MoviesAPI\\wwwroot\\",
+      "BasePath": "_content/MoviesAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
