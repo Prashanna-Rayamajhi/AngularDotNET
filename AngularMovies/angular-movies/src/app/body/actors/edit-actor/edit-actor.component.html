@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Edit Actor</h2>
+    <div class="text-center" *ngIf="!model">
+        <div class="spinner-grow spinner-grow-sm text-secondary m-1" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>                
+        <div class="spinner-grow spinner-grow-sm text-secondary m-1" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        <div class="spinner-grow  spinner-grow-sm text-secondary m-1" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+      </div>
+
+      <app-form-actor *ngIf="model" [model]="model" (OnSaveChanges)="OnActorEdited($event)"></app-form-actor>
+</div>
+
+
+

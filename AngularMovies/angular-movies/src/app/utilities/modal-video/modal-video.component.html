@@ -1,0 +1,20 @@
+<div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title"></h5>
+      <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close" (click)="close()">X</button>
+    </div>
+    <div class="modal-body">
+      <div *ngIf="videoURL">
+        <iframe
+        [src]="videoURL"
+        frameBorder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picutre-in-picture"
+        allowfullscreen>
+        </iframe>
+      </div>
+      <div *ngIf="!videoURL">
+        Sorry!!! Couldn't load the video.
+      </div>
+    </div>
+    
+  </div>

@@ -1,0 +1,19 @@
+
+
+
+<app-filter-movie 
+(onMoviesFiltered)="onMoviesSearched($event)">
+</app-filter-movie>
+
+
+<app-movie-list 
+[movies]="allMovies"
+(movieListChanged)="onListChanged()"></app-movie-list>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 15,20, 25]"
+showFirstLastButtons
+[length]="pagedData.totalAmountOfRecords"
+[pageSize]="pagedData.pageSize"
+(page)="UpdatePagination($event)">
+
+</mat-paginator>

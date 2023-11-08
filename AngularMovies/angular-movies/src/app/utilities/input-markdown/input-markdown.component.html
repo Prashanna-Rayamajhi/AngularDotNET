@@ -1,0 +1,11 @@
+<mat-tab-group>
+    <mat-tab label="Edit">
+        <mat-form-field appearance="fill" (change) = "onChange($event)">
+            <mat-label>{{contentType}}</mat-label>
+            <textarea matInput [(ngModel)] = "markDownContent" ></textarea>
+        </mat-form-field>
+    </mat-tab>
+    <mat-tab label="Preview">
+        <markdown [data]="markDownContent" ngPreserveWhitespaces></markdown>
+    </mat-tab>
+</mat-tab-group>

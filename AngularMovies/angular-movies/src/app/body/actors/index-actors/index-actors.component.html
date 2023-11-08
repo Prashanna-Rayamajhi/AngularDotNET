@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col p-3 border bg-light">
+            <h2>Actors</h2>
+
+            <button mat-flat-button color="primary" routerLink="./create">Create New Actor</button>
+
+            <app-general-list [list]="actors">
+                <ng-container content>
+                    <table class="table table-striped table-hover mt-3">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Images</th>
+                                <th>Name</th>
+                                <th>Date of Birth</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let actor of actors; let i = index">
+                                <td class="m-1">{{i + 1}}</td>
+                                <td class="m-1"><img [src]="actor.picture" [alt]="actor.name"></td>
+                                <td>{{actor.name}}</td>
+                                <td>{{actor.dateOfBirth | date}}</td>
+                                <td>
+                                    <a class="btn btn-info btn-sm m-1" routerLink="/actors/edit/{{actor.id}}">Edit</a>
+                                    <a class="btn btn-danger btn-sm m-1" 
+                                    [swal]="{
+                                        title: 'Confirmation',
+                                        text: 'Are you sure to delete the record?',
+                                        showCancelButton: true 
+                                    }"
+                                    (confirm)="delete(actor.id)">Delete</a>
+                                </td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                    <mat-paginator [pageSizeOptions]="[5, 10, 15,20, 25]"
+                    showFirstLastButtons
+                    [length]="totalAmountOfRecord"
+                    [pageSize]="pageSize"
+                    (page)="UpdatePagination($event)">
+
+                    </mat-paginator>
+                </ng-container>
+                
+            </app-general-list>
+        </div>
+    </div>
+</div>    
+

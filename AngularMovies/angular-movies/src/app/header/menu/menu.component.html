@@ -1,0 +1,59 @@
+
+<mat-toolbar color="primary">
+    <span>
+        <a mat-button routerLink="">
+            <mat-icon>local_movies</mat-icon>Angular Movies
+        </a>
+    </span>
+    <app-authorize-view [role]="'admin'">
+        <ng-container authorized>
+            <div>
+                <a mat-button routerLink="genres">Genres</a>
+            </div>
+            <div>
+                <a mat-button routerLink="actors">Actors</a>
+            </div>
+            <div>
+                <a mat-button routerLink="movietheaters">Movie Theaters</a>
+            </div>
+            <div>
+                <a mat-button routerLink="movies/create">Create Movie</a>
+            </div>
+            <div>
+                <a mat-button routerLink="users">Users</a>
+            </div>
+        
+        </ng-container>
+    </app-authorize-view>  
+    
+    <div class="space">
+
+    </div>
+    <app-authorize-view class="mg-class">
+        <ng-container authorized>
+
+        </ng-container>
+        <ng-container notauthorized>
+            <div class="dropdown">
+                <button class="btn dropdown-toggle ddbtn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src ="https://e7.pngegg.com/pngimages/81/570/png-clipart-profile-logo-computer-icons-user-user-blue-heroes-thumbnail.png" class="user" />
+                </button>
+                <ul class="dropdown-menu fade-in" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" routerLink="login">Login</a></li>
+                  <li><a class="dropdown-item" routerLink="register">Register</a></li>
+                </ul>
+              </div>
+        </ng-container>
+        <ng-container authorized>
+            <div class="dropdown">
+                <button class="btn dropdown-toggle ddbtn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span>Hello, {{userName}}</span>
+                </button>
+                <ul class="dropdown-menu fade-in" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" (click)="Logout()">Logout</a></li>
+                  <!-- <li><a class="dropdown-item" routerLink="register">Register</a></li> -->
+                </ul>
+              </div>
+        </ng-container>
+    </app-authorize-view>
+</mat-toolbar>

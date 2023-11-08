@@ -1,0 +1,40 @@
+<div>
+    <mat-form-field>
+        <input type="text" 
+        placeholder="Select the actors"
+        
+        [formControl]="control"
+        matInput
+        [matAutocomplete]="auto"/>
+    </mat-form-field>
+    <mat-autocomplete #auto
+    (optionSelected)="onOptionSelected($event)">
+        <mat-option *ngFor="let actor of actors" 
+        [value]="actor" 
+        id="{{actor.id}}">
+            <img [src]="actor.picture">{{actor.name}}
+        </mat-option>
+    </mat-autocomplete>
+</div>
+<ul class="list-group mb-3">
+    <li class="list-group-item d-flex justify-content-between align-items-center"
+    *ngFor="let actor of selectedActors" >
+      <div>
+        <img [src]="actor.picture"> 
+        {{actor.name}}
+      </div>   
+     <div style="margin-right: 4px;">
+        <input type="text" 
+        class="form-control" 
+        placeholder="Character"
+        formControlName="characterControl"
+        [id] = "actor.id"
+        [value]="actor.character"
+        (keyup)="onCharacter($event)"/>
+     </div>
+      <span class="badge bg-danger rounded-pill"
+      (click)="onDeleteClicked($event)"
+      [id]="actor.id"
+        >X</span>
+    </li>
+</ul>    

@@ -1,0 +1,17 @@
+<div>
+    <h2>Edit Movie Theater</h2>
+    <app-movie-theaters-form *ngIf="model"
+    [model]="model"
+     (OnSave)="OnSaveChanges($event)"></app-movie-theaters-form>
+
+     <div *ngIf="!model"> 
+        <span #loading>
+            <ng-content select="[loading]"></ng-content>
+        </span>
+        <span *ngIf="!loading.innerHTML.trim()">
+            <div class="lds-facebook"><div></div><div></div><div></div></div>
+        </span>
+        
+    </div>
+</div>
+

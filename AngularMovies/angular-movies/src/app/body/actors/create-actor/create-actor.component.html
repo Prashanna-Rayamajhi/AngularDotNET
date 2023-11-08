@@ -1,0 +1,7 @@
+<div>
+    <h2>
+        Create Actor
+    </h2>
+    <app-display-error [errors]="errors"></app-display-error>
+    <app-form-actor (OnSaveChanges)="OnActorCreate($event)"></app-form-actor>
+</div>

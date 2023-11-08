@@ -1,0 +1,19 @@
+<div>
+    <!-- <button type="button" mat-raised-button (click)="imageInput.click()"  class="btn btn-outline-primary mb-3">Select Image</button>
+    <input type="file" hidden #imageInput accept="image/png, image/jpeg" (change)="onChange($event)"/> -->
+
+    <div class="mb-3">
+        <label for="formFile" class="form-label"><b>Please Select Image</b></label>
+        <input class="form-control" type="file" id="formFile" accept="image/png, image/jpeg" (change)="onChange($event)"
+        >
+      </div>
+      
+    <div class="imageContainer">
+        <div *ngIf="imageToBase64">
+            <img [src]="imageToBase64" />
+        </div>
+        <div *ngIf="currentImageURL">
+            <img [src]="currentImageURL" />
+        </div>
+    </div>
+</div>

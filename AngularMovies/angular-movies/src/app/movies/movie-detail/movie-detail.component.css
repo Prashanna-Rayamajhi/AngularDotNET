@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800');
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body{
+  font-family: 'Montserrat', helvetica, arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+.movie-card-container{
+  width: 80vw;
+  height: 88vh;
+  margin: 0 9%;
+  background: #888;
+}
+.content-header-container{
+  width: 100%;
+  height: 70%;
+  padding: 30px;
+  /* background-image: url('https://1.bp.blogspot.com/-jgFrJZc4zt0/XK77MvLqanI/AAAAAAAAnVw/n2kYTyD0LHkM6EUTGKMNJs00iG-8fxhkACLcBGAs/s1600/Game-of-Thrones-HD-Wallpapers-5.jpg'); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 15%;
+  background-color: #576675;
+  background-blend-mode: multiply;  
+}
+.content-header{
+  margin: 16% 30%;
+}
+
+.content-header .title{
+  color: #fff;
+}
+.content-header .content-title{
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.content-header .sub-title{
+  font-size: 16px;
+  font-weight: 200;
+  display: inline-block;
+}
+.header-desc{
+  width: 100%;
+}
+.header-desc .sub-text{
+  color: #fff;
+  font-size: 12px;
+}
+.header-desc .pill{
+  background-color: #ffbf00;
+  padding: 4px;
+  border-radius: 4px;
+  float: right;
+}
+
+.content-header-desc .genres{
+  color: #BBB;
+  font-size: 13px;
+  cursor: pointer;
+}
+.fa{
+  color: #BBB;
+}
+.header-play-trailer{
+  margin-top: 12px;
+  width: 50%;
+  height: 12%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.fa-circle-play{
+  color: #AAA;
+  margin-right: 12px;
+  font-size: 36px;
+}
+.checked {
+  color: orange;
+}
+.trailer-text{
+  color: #BBB;
+}
+
+.content-body-container{
+  width: 100%;
+  height: 40%;
+  padding: 12px;
+  background-color: #f4f4f4;
+}
+.content-body{
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+.content-body-container .content-image{
+  width: 15%;
+  height: 70%; 
+  overflow: hidden;
+}
+.content-body-container .content-image img{
+  width: 100%;
+  height: 90%;
+}
+.content-body-summary{
+  width: 55%;
+  margin-left: 5%;
+  margin-right: 4%;
+}
+.content-cast h4{
+  font-weight: 500;
+}
+.content-cast ul {
+  list-style: none;
+}
+li.cast{
+  margin: 8px 0px;
+  display: flex;
+  align-items: center;
+}
+li.cast .cast-img{
+  width: 50px;
+  height: 50px;
+  margin-right: 8px;
+  border-radius: 225%;
+}
+.content-body-footer{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.content-body-footer span{
+  display: inline-block;
+  margin: 4px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+}
+
+.content-main{
+  height: 150px;
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
+  
+  
+ }
+
+ .custom-modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha (0.5) to set the opacity */
+  }
+  
+
+  .averageVote{
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+  }

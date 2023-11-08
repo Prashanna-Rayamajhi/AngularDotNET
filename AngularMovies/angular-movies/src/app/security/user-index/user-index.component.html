@@ -1,0 +1,51 @@
+<div>
+    <h3>Users</h3>
+</div>
+
+ <div>
+    <table class="table table-striped table-hover mt-3">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users; let i = index">
+                <td class="m-1">{{i + 1}}</td>
+                <td class="m-1">{{user.email}}</td>
+                <td>
+                    <a class="btn btn-primary btn-sm m-1" 
+                    [swal]="{
+                        title: 'Confirmation',
+                        text: 'Are you sure to make user an admin?',
+                        showCancelButton: true 
+                    }"
+                    (confirm)="makeAdmin(user.id)">Make Admin</a>
+                    <a class="btn btn-danger btn-sm m-1" 
+                    [swal]="{
+                        title: 'Confirmation',
+                        text: 'Are you sure to remove user from admin?',
+                        showCancelButton: true 
+                    }"
+                    (confirm)="removeAdmin(user.id)">Remove Admin</a>
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+<ng-container>
+    <mat-paginator [pageSizeOptions]="[5, 10, 15,20, 25]"
+    showFirstLastButtons
+    [length]="totalAmountOfRecord"
+    [pageSize]="pageSize"
+    (page)="UpdatePagination($event)">
+
+    </mat-paginator>
+</ng-container>
+ </div>
+    
+
+
+

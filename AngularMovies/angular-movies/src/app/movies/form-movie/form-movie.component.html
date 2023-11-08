@@ -1,0 +1,56 @@
+<form [formGroup]="form" (submit)="OnSaveChanges()">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Movie Title" formControlName="name" required>
+        <label for="floatingInput">Movie Title</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="trailer" placeholder="Trailer" formControlName="trailer" required>
+        <label for="trailer">Trailer</label>
+    </div>
+    <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" value="" id="inTheaters" formControlName="moviesInTheaters">
+        <label class="form-check-label" for="flexCheckDefault">
+          Is In Theater
+        </label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text"
+        formControlName="releaseDate"
+        placeholder="Choose date"
+        id="releaseDate"
+        class="form-control"
+        bsDatepicker>
+        <label for="releaseDate">Release Date</label>
+    </div>
+    <div form-floating mb-3>
+        <app-multiple-selector 
+        [selectedData]="modelGenre"
+        [isGenreSelector]="true"></app-multiple-selector>
+    </div>
+    <div form-floating mb-3>
+        <app-multiple-selector 
+        [selectedData]="modelTheaters"
+        [isGenreSelector]="false"></app-multiple-selector>
+    </div>
+    <div form-floating mb-3>
+        <label for="selectActors"><b>Select Actors:</b></label>
+        <app-actors-autocomplete 
+        id="selectActors"
+        [selectedActors]="modelActors"></app-actors-autocomplete>
+    </div>
+    <div class="form-floating mb-3">
+        <app-input-img 
+        (OnImageSelected)="OnImageSelected($event)"
+        [currentImageURL]="model?.poster"></app-input-img>
+    </div>
+    <div class="form-floating mb-3">
+        <app-input-markdown [contentType]="contentType"
+        (changeMarkdown)="OnChangeMarkdown($event)"
+        [markDownContent]="model?.summary"></app-input-markdown>
+    </div>
+    <div class="form-floating mb-3">
+        <button class="btn btn-primary mr-3" [disabled]="form.invalid">Save Changes</button>
+        <a routerLink="/" class="btn btn-outline-danger">Cancel</a>
+    </div>
+    
+</form>

@@ -1,0 +1,15 @@
+
+    <label *ngIf="isGenreSelector"><b>Select Genres </b></label>
+    <label *ngIf="!isGenreSelector"><b>Select Movie Theaters </b></label>
+
+    <div class="row">
+        <div class="col-sm-4 mb-1"  *ngFor="let selector of selectableItems; let i = index">
+            <input type="checkbox" class="form-check-input"  id="{{selector._id}}" [checked]="selector.isChecked"
+            [name]="selector.value"
+            [value]="selector._id" 
+            (change)="onChange($event)"
+             pattern ="{{isGenreSelector}}"/>
+            <label> {{selector.value}}</label>
+        </div>     
+     </div>   
+   

@@ -1,0 +1,61 @@
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<div class="movie-card-container">
+   <div class="content-header-container" [style.background-image]="'url(' + backgroundURL + ')'">>
+     <div class="content-header">
+       <h2 class="content-title title">{{model.name}}</h2>
+       <div class="header-desc">
+          <h4 class="sub-title title">Movie</h4>
+         <span class="year sub-text"> | {{releaseDate.getFullYear()}}</span>
+         <span class ="sub-text pill">TV-MA</span>
+       </div>
+      <div class="content-header-desc">
+        <span class="genres">Action,</span>
+        <span class="genres">Adventure,</span>
+        <span class="genres">Sci-Fi</span>
+      </div>
+       <div class="header-content-body">
+
+       <app-rating [selectedRate]="model.userVote" (OnRating)="OnRating($event)"></app-rating>
+       <span class="averageVote">| {{model.averageVote}}</span> 
+        
+        <div class="header-play-trailer" (click)="openModal()">
+         <i class="fa-regular fa-circle-play fa-beat-fade"></i>
+          <span class="trailer-text"> Play Trailer</span>
+         </div>
+       </div>
+     </div>
+   </div>
+  <div class="content-body-container">
+    <div class="content-body">
+      <div class="content-image">
+      <img src="{{model.poster}}" alt="Game of Thrones" />
+    </div>
+    <div class="content-body-summary content-main">
+      <div class="text">
+        {{model.summary}}
+      </div>
+      <div class="content-body-footer">
+        <span>
+          <i class="fa-solid fa-share-nodes"></i>
+        </span>
+        <span>
+          <i class="fa-regular fa-thumbs-up"></i>
+          | 10K Likes
+        </span>
+      </div>
+    </div>
+      <div class="content-cast">
+        <h4>Top Cast</h4>
+        <ul>
+          <li class="cast" *ngFor="let actor of model.actors">
+            <img src="{{actor.picture}}" alt="{{actor.name}}" class="cast-img"/>
+            <span>{{actor.name}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+</div>

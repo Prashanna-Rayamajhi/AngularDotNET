@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="col p-3 border bg-light">
+            <h2>Genres</h2>
+
+            <button mat-flat-button color="primary" routerLink="./create">Create New Genre</button>
+
+            <div class="text-center" *ngIf="!isGenreAvailable">
+                <div class="spinner-grow spinner-grow-sm text-secondary m-1" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>                
+                <div class="spinner-grow spinner-grow-sm text-secondary m-1" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                <div class="spinner-grow  spinner-grow-sm text-secondary m-1" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+              </div>
+              
+
+            <app-general-list [list]="genres" >
+                <ng-container content>
+                    <table class="table table-striped table-hover mt-3" style="text-align: center;">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let genre of (genres); let i = index">
+                                <td class="m-1">{{i + 1}}</td>
+                                <td class="m-1">{{genre.name }}</td>
+                                <td>
+                                    <a class="btn btn-info btn-sm m-1" routerLink="/genres/edit/{{genre.id}}">Edit</a>
+                                    <a class="btn btn-danger btn-sm m-1" 
+                                    [swal]="{
+                                        title: 'Confirmation',
+                                        text: 'Are you sure to delete the record?',
+                                        showCancelButton: true 
+                                    }"
+                                    (confirm)="delete(genre.id)">Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ng-container>
+            </app-general-list>
+        </div>
+    </div>
+</div>

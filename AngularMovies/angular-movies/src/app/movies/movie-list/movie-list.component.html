@@ -1,0 +1,41 @@
+<app-general-list [list]="movies">
+    <!-- <ng-container loading>
+        This is loading...
+    </ng-container>
+    <ng-container empty>
+        There are <b>no</b>content to display.
+    </ng-container> -->
+
+    <ng-container content>
+        <div class="movies-container">
+            <div *ngFor="let movie of movies" class="movies-list">
+                <a [routerLink]="'./movies/' + movie.id">
+                    <img [src]="movie.poster" alt="Movie Poster" />
+                </a>
+                <p>
+                   <a [routerLink]="'./movies/' + movie.id">{{movie.name}}</a>
+                </p>
+
+                <!-- Only for authorized user -->
+                <app-authorize-view [role]="'admin'">
+                    <ng-container authorized>
+                        <div>
+                            <a [routerLink]="'./movies/edit/' + movie.id" mat-flat-button color="primary">Edit</a>
+                            <button mat-flat-button type="button" color="warn"
+                            [swal]="{
+                                title: 'Confirmation', 
+                                text: 'Are you sure you want to delete the record?',
+                                showCancelButton: true}"
+                            (confirm)="delete(movie.id)"    >
+                                Delete</button>
+                        </div>
+                    </ng-container>
+                </app-authorize-view>
+                
+                
+            </div>
+        </div>
+    </ng-container>
+
+
+</app-general-list>

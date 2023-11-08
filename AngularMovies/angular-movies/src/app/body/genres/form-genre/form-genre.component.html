@@ -1,0 +1,24 @@
+<form (submit)="onSave()" [formGroup]="form" class="form-floating">
+    <!-- <mat-form-field appearance="outline">
+        <mat-label>Name*</mat-label>
+        <input formControlName="name" matInput/>
+        <mat-error>{{GetErrorMessage('name')}}</mat-error>
+    </mat-form-field> -->
+    <div class="form-floating mb-3">
+        <input type="text" 
+        class="form-control" 
+        id="nameGenre" 
+        placeholder="Enter Name of Genre"
+        formControlName="name"
+        [ngClass]="{ 'is-invalid': form.get('name')?.invalid && form.get('name')?.touched }">
+        <label for="nameGenre">Name</label>
+        <div class="invalid-feedback" id="errorMessage">
+            {{GetErrorMessage('name')}}
+        </div>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Save</button>
+        <a class="btn btn-outline-secondary m-2" routerLink="/genres">Cancel</a>
+    </div>
+</form>

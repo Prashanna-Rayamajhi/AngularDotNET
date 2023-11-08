@@ -1,0 +1,17 @@
+div{
+    width: 100%
+}
+mat-form-field{
+    width: 100%;
+}
+
+img{
+    vertical-align: middle;
+    width: 35px;
+    margin-right:8px;
+    height: 45px;
+}
+ul li img{
+    width: 25px;
+    height: 30px;
+}

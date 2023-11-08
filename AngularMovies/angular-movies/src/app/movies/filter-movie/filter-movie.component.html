@@ -1,0 +1,33 @@
+<h2> Search Movies </h2>
+
+<div>
+    <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseableForm" aria-controls="collapseableForm">
+        Filter Movies <mat-icon>search</mat-icon>
+    </button>
+</div>
+<div class="collapse" id="collapseableForm">
+    <form [formGroup]="form" class="card card-body">
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Genre</mat-label>
+            <mat-select formControlName="genreId">
+                <mat-option *ngFor="let genre of genres" [value]="genre.id">{{genre.name}}</mat-option>
+
+            </mat-select>
+        </mat-form-field>
+        <div>
+            <mat-checkbox formControlName="upcomingReleases">Future Release</mat-checkbox>
+        </div>
+        <div>
+            <mat-checkbox formControlName="inTheaters">In Theaters</mat-checkbox>
+        </div>
+        <div class="btnDiv">
+        <button type="button" class="btn btn-danger" (click)="clearForm()">
+            Clear
+        </button>
+        </div>
+    </form>
+</div>

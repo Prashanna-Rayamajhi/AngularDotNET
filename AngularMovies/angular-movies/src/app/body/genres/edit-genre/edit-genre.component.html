@@ -1,0 +1,21 @@
+<div>
+    <h2>Edit Genre</h2>
+
+    <app-display-error [errors]="errors"></app-display-error>
+    <app-form-genre
+    *ngIf="model" 
+    (OnSaveChanges)="OnSaveChange($event)" 
+    [model]="model"></app-form-genre>
+
+    <div *ngIf="!model">
+        <div class="spinner-grow spinner-grow-sm text-secondary m-1" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>                
+        <div class="spinner-grow spinner-grow-sm text-secondary m-1" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        <div class="spinner-grow  spinner-grow-sm text-secondary m-1" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+    </div>
+</div>

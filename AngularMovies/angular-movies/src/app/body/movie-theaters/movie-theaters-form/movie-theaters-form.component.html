@@ -1,0 +1,22 @@
+<form [formGroup]="form" (submit)="OnSaveChanges()">
+    <mat-form-field appearance="outline">
+        <mat-label>Name*</mat-label>
+        <input formControlName="name" matInput />
+    </mat-form-field>
+        <div class="form-field">
+            <label>
+                Select Theater From the Map:
+            </label>
+            <app-map 
+            (OnSelectedLocation)="OnLocationSelected($event)"></app-map>
+        </div>
+        
+        <div>
+            <button mat-flat-button color="primary" [disabled]="form.invalid">
+                Save Changes
+            </button>
+            <a mat-stroked-button routerLink="/movie-theaters">
+                Cancel
+            </a>
+        </div>
+</form>
